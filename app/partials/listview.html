@@ -1,0 +1,196 @@
+<div class="containerWide">
+	<div class="header">
+	        <ul class="nav nav-pills pull-right">
+	<!--           <li><a href="#edit">Edit</a></li>
+	 -->          <li><a href="#about">About</a></li>
+	          <li><a href="#contact">Contact</a></li>
+	        </ul>
+	        <span><h3 class="text-muted"><a href="#/">comrades</a></h3></span>
+	</div>
+	<div class="row no-pad">
+		<div class="leftNavBar col-md-2">
+			<h3>Welcome, {{UserData.FirstName}}!</h3>
+
+		<!-- 	<ul ng-repeat = "hobby in UserData.Hobbies">
+				<li ng-if = "hobby.value == YES">
+					{{hobby.value}}
+				</li>
+			</ul> -->
+
+		<!-- 	<input ng-model="enteredValue" class="form-control">
+			<button type="button" class="btn btn-primary" ng-Click="findValue()">Search</button> -->
+			<h4>Search:</h4> <input ng-model="query" class="form-control">
+
+		<a href="" ng-click="filters = 'Strong Comrades'"><i class="glyphicon glyphicon-fire"></i>Strong Comrades</a>
+		<a href="" ng-click="filters = 'Moderate Comrades'"><i class="glyphicon glyphicon-resize-horizontal"></i>Moderate Comrades</a>
+		<a href="" ng-click="filters = 'Weak Comrades'"><i class="glyphicon glyphicon-thumbs-down"></i>Weak Comrades</a>
+
+
+		<a ng-click = "filters = ''" href=""><i class="glyphicon glyphicon-star"></i>All Comrades</a>
+		<a ng-href="#listview/{{randomName}}"><i class="glyphicon glyphicon-flash"></i>Random Comrade</a>
+
+			<div class="navBarFooter">
+				
+				<div class = "topHalf">
+					<a href="#registration"><i class="glyphicon glyphicon-pencil"></i></a>
+					<a href="#"><i class="glyphicon glyphicon-phone"></i></a>
+					<a href="#"><i class="glyphicon glyphicon-paperclip"></i></a>
+				</div>
+
+				<div class="divider">
+				</div>
+
+				<div class = "bottomHalf">
+				<a href="#"><i class="glyphicon glyphicon-floppy-save"></i></a>
+				<a href="#"><i class="glyphicon glyphicon-sunglasses"></i></a>
+				<a href="#"><i class="glyphicon glyphicon-grain"></i></a>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-md-10">
+			<div class = "scrollBox">
+
+				<div class="row no-pad" ng-repeat="rows in chunkedData">
+						
+						<div data-content="{{communists.name}}" class = "listedProfile col-md-4" ng-repeat="communists in rows | filter:query | filter: filters">
+
+									<img class = "listviewPic" ng-src = "{{communists.image}}">
+
+
+						<span class = "glyphiconBox">
+							<a ng-if="strongComrades(communists)[0]>1" href = "" ng-click="toggleModal(communists)">	
+									<i class="glyphicon glyphicon-fire" ></i>Strong Comrades
+								</a>
+								<a ng-if="strongComrades(communists)[0]==1" href = "" ng-click="toggleModal(communists)">	
+									<i class="glyphicon glyphicon-fire" ></i>Moderate Comrades
+								</a>
+								<a ng-if="strongComrades(communists)[0]<1" href = "" ng-click="toggleModal(communists)">	
+									<i class="glyphicon glyphicon-fire" ></i>Weak Comrades
+								</a>
+
+								<a href = "#listview/{{communists.name}}">
+									<i class="glyphicon glyphicon-envelope"></i>View
+								</a>
+								<a href="" ng-click="addToFavorites(communists[$index])" >
+									<i id="favorite" ng-class="{'glyphicon glyphicon-star-empty':!favorited,
+									'glyphicon glyphicon-star':favorited}" ng-click="favorited=!favorited"></i>Favorite
+								</a>
+								<a href="" ng-click="delete(communists)" class = "deleteComrade">
+									<i class="glyphicon glyphicon-remove"></i>Remove
+								</a>
+						</span> 
+					</div>
+				</div>
+
+				<!-- <div ng-repeat ="communist in communists | filter:query" ng-if="$index %3 == 0" class="row no-pad">
+					<div data-content="{{communists[$index].name}}" class="listedProfile col-xs-4">
+						
+						<img ng-src="{{communists[$index].image}}" class="listviewPic">
+						<span class = "glyphiconBox">
+
+							<a ng-if="strongComrades(communists[$index])[0]>1" href = "" ng-click="toggleModal(communists[$index])">	
+								<i class="glyphicon glyphicon-fire" ></i>Strong Comrades
+							</a>
+							<a ng-if="strongComrades(communists[$index])[0]==1" href = "" ng-click="toggleModal(communists[$index])">	
+								<i class="glyphicon glyphicon-fire" ></i>Moderate Comrades
+							</a>
+							<a ng-if="strongComrades(communists[$index])[0]<1" href = "" ng-click="toggleModal(communists[$index])">	
+								<i class="glyphicon glyphicon-fire" ></i>Weak Comrades
+							</a>
+
+							<a href = "#listview/{{communists[$index].name}}">
+								<i class="glyphicon glyphicon-envelope"></i>View
+							</a>
+							<a href="" ng-click="addToFavorites(communists[$index])" >
+								<i id="favorite" ng-class="{'glyphicon glyphicon-star-empty':!favorited,
+								'glyphicon glyphicon-star':favorited}" ng-click="favorited=!favorited"></i>Favorite
+							</a>
+							<a href="" ng-click="delete(communists[$index])" class = "deleteComrade">
+								<i class="glyphicon glyphicon-remove"></i>Remove
+							</a>
+						</span>
+						</a>
+					</div>
+					<div data-content="{{communists[$index+1].name}}" class="listedProfile col-xs-4">
+						<img ng-src="{{communists[$index+1].image}}" class="listviewPic">
+						<span class = "glyphiconBox">
+							<a ng-if="strongComrades(communists[$index+1])[0]>1" href = "" ng-click="toggleModal(communists[$index+1])">	
+								<i class="glyphicon glyphicon-fire" ></i>Strong Comrades
+							</a>
+							<a ng-if="strongComrades(communists[$index+1])[0]==1" href = "" ng-click="toggleModal(communists[$index+1])">	
+								<i class="glyphicon glyphicon-fire" ></i>Moderate Comrades
+							</a>
+							<a ng-if="strongComrades(communists[$index+1])[0]<1" href = "" ng-click="toggleModal(communists[$index+1])">	
+								<i class="glyphicon glyphicon-fire" ></i>Weak Comrades
+							</a>
+							<a href = "#listview/{{communists[$index+1].name}}">
+								<i class="glyphicon glyphicon-envelope"></i>View
+							</a>
+							<a href="">
+								<i id="favorite" ng-class="{'glyphicon glyphicon-star-empty':!favorited,
+								'glyphicon glyphicon-star':favorited}" ng-click="favorited=!favorited"></i>Favorite
+							</a>
+							<a href="" ng-click="delete(communists[$index+1])" class = "deleteComrade">
+								<i class="glyphicon glyphicon-remove"></i>Remove
+							</a>
+
+						</span>
+
+					</div>
+					<div data-content="{{communists[$index+2].name}}" class="listedProfile col-xs-4">
+						<img ng-src="{{communists[$index+2].image}}" class="listviewPic">
+						<span class = "glyphiconBox">
+							<a ng-if="strongComrades(communists[$index+2])[0]>1" href = "" ng-click="toggleModal(communists[$index+2])">	
+								<i class="glyphicon glyphicon-fire" ></i>Strong Comrades
+							</a>
+							<a ng-if="strongComrades(communists[$index+2])[0]==1" href = "" ng-click="toggleModal(communists[$index+2])">	
+								<i class="glyphicon glyphicon-fire" ></i>Moderate Comrades
+							</a>
+							<a ng-if="strongComrades(communists[$index+2])[0]<1" href = "" ng-click="toggleModal(communists[$index+2])">	
+								<i class="glyphicon glyphicon-fire" ></i>Weak Comrades
+							</a>
+							<a href = "#listview/{{communists[$index+2].name}}">
+								<i class="glyphicon glyphicon-envelope"></i>View
+							</a>
+							<a href="" ng-click="addToFavorites()" >
+								<i class="glyphicon glyphicon-star-empty"></i>Favorite
+							</a>
+							<a href="" ng-click="delete(communists[$index+2])" class = "deleteComrade">
+								<i class="glyphicon glyphicon-remove"></i>Remove
+							</a>
+						</span>
+					</div>
+				</div> -->
+			</div>
+
+		<!-- <ul>
+			<li ng-repeat="communist in communists | filter:{isFavorite:true}">{{communist.name}}</li>
+		</ul> -->
+
+		</div>
+	</div>
+</div>
+
+
+<modal class="myModal" title="Comrades! The First International Dating Site for Communists" visible="showModal">
+      <p>You and {{communist.name}} are {{communist.similarities[0]}}!</p><!-- 
+      <ul ng-repeat = "hobby in UserData.Hobbies"> 
+      	<li ng-if="hobby.value==true">{{hobby.name}}</li>
+      	<li ng-if="hobby.value==true">{{hobby.match}}</li>
+		<li ng-if ="hobby.match==true">{{hobby.name}}</li> -->
+		<p> Your comrade enjoys: </p>
+      	<ul> 
+      		<li ng-repeat = "hobby in communist.hobbies" style="text-transform:capitalize;">{{hobby}}</li>  
+      	<!-- 	<li>{{communist.similarities}}</li> -->
+
+      		
+      		<!-- <li style="text-transform:capitalize;">{{communist.similarities[0]}}</li>
+      		<li style="text-transform:capitalize;">{{communist.similarities[1]}}</li>
+      		<li style="text-transform:capitalize;">{{communist.similarities[2]}}</li>   -->
+      	</ul>
+<!--       	<h3><a href="#listview/{{communist.name}}" ng-click="toggleModal(communist)"><span class="label label-default">View Your Comrade's Profile</span></a></h3>
+ -->      	
+  </modal>
+
+

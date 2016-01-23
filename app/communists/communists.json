@@ -1,0 +1,148 @@
+{
+	"communists":[
+	{
+		"name" : "Theodor W. Adorno",
+		"image" : "../images/adornoList.jpg",
+		"hobbies" : ["dodgeball", "basketball", "horseshoes"],
+		"similarities" : ""
+	},
+	{
+		"name" : "Louis Althusser",
+		"image" : "../images/althusserList.jpg",
+		"hobbies" : ["homebrewing", "juggling", "machining"],
+		"similarities" : ""
+	},
+	{
+		"name" : "Walter Benjamin",
+		"image" : "../images/benjaminList.jpg",
+		"hobbies" : ["kayaking", "horseshoes", "magic"],
+		"similarities" : ""
+	},
+	{
+		"name" : "Eduard Bernstein",
+		"image" : "../images/bernsteinList.jpg",
+		"hobbies" : ["homebrewing", "juggling", "machining"],
+		"similarities" : ""
+	},
+	{
+		"name" : "Ernst Bloch",
+		"image" : "../images/blochList.jpg",
+		"hobbies": ["hunting", "jogging", "juggling"],
+		"similarities" : ""
+	},
+	{
+		"name" : "Bertolt Brecht",
+		"image" : "../images/brechtList.jpg",
+		"hobbies": ["kayaking", "LARPing", "machining"],
+		"similarities" : ""	
+	},
+	{
+		"name" : "Cornelius Castoriadis",
+		"image" : "../images/castoriadisList.jpg",
+		"hobbies": ["magic", "music", "origami"],
+		"similarities" : []	
+	},
+	{
+		"name" : "James Connolly",
+		"image" : "../images/connollyList.jpg",
+		"hobbies": ["painting", "parkour", "pottery"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Guy Debord",
+		"image" : "../images/debordList.jpg",
+		"hobbies": ["photography", "quilting", "reading"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Raya Dunayevskaya",
+		"image" : "../images/dunayevskayaList.jpg",
+		"hobbies": ["rugby", "skateboarding", "skiing"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Terry Eagleton",
+		"image" : "../images/eagletonList.jpg",
+		"hobbies": ["scouting", "scrapbooking", "sculpting"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Friedrich Engels",
+		"image" : "../images/engelsList.jpg",
+		"hobbies": ["taxidermy", "walking", "whittling"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Antonio Gramsci",
+		"image" : "../images/gramsciList.jpg",
+		"hobbies": ["woodworking", "writing", "yoga"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Che Guevara",
+		"image" : "../images/guevaraList.jpg",
+		"hobbies": ["painting", "parkour", "whittling"],
+		"similarities" : []	
+	},
+	{
+		"name" : "David Harvey",
+		"image" : "../images/harveyList.jpg",
+		"hobbies": ["scouting", "kayaking", "juggling"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Ho Chi Minh",
+		"image" : "../images/minhList.jpg",
+		"hobbies": ["yoga", "writing", "origami"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Enver Hoxha",
+		"image" : "../images/hoxhaList.jpg",
+		"hobbies": ["painting", "photography", "LARPing"],
+		"similarities" : []		
+	},
+	{
+		"name" : "C.L.R. James",
+		"image" : "../images/jamesList.jpg",
+		"hobbies": ["archery", "astronomy", "backpacking"],
+		"similarities" : []		
+	},
+	{
+		"name" : "Kojin Karatani",
+		"image" : "../images/karataniList.jpg",
+		"hobbies": ["baseball", "basketball", "blacksmithing"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Edvard Kardelj",
+		"image" : "../images/kardeljList.jpg",
+		"hobbies": ["cycling", "dodgeball", "driving"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Karl Kautsky",
+		"image" : "../images/kautskyList.jpg",
+		"hobbies": ["fishing", "foraging", "graffiti"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Jim Kemmy",
+		"image" : "../images/kemmyList.jpg",
+		"hobbies": ["hiking", "horeshoes", "homebrewing"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Alexandra Kollontai",
+		"image" : "../images/kollontaiList.jpg",
+		"hobbies": ["astronomy", "backpacking", "magic"],
+		"similarities" : []	
+	},
+	{
+		"name" : "Damodar Dharmananda Kosambi",
+		"image" : "../images/kosambiList.jpg",
+		"hobbies": ["foraging", "origami", "dodgeball"],
+		"similarities" : []	
+	}
+	]
+}
