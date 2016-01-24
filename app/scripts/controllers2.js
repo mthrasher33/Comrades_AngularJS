@@ -1,37 +1,31 @@
 //console.log("controllers.js called");
 var myyoprojectCtrls = angular.module('myyoprojectCtrls', []);
 
-myyoprojectCtrls.controller('editController', function($scope){
-  "ngInject";
+myyoprojectCtrls.controller('editController', ["$scope", function($scope){
 	$scope.message = "I am the edit controller!";
-});
+}]);
 
-myyoprojectCtrls.controller('aboutController', function($scope){
-  "ngInject";
+myyoprojectCtrls.controller('aboutController', ["$scope", function($scope){
 	$scope.message = "I am the about controller!";
-});
+}]);
 
-myyoprojectCtrls.controller('contactController', function($scope){
-  "ngInject";
+myyoprojectCtrls.controller('contactController', ["$scope", function($scope){
 	$scope.message = "I am the contact controller!";
-});
+}]);
 
-myyoprojectCtrls.controller('homeController', function($scope){
-  "ngInject";
+myyoprojectCtrls.controller('homeController', ["$scope", function($scope){
 	$scope.message = "I am the home controller!";
-});
+}]);
 
-myyoprojectCtrls.controller('registrationController', function($scope, UserData){
-  "ngInject";
+myyoprojectCtrls.controller('registrationController', ["$scope", "UserData", function($scope, UserData){
 
 	$scope.message = "I am the registration controller!";
 	// $scope.firstName = dataService.dataObj;
 	// $scope.lastName = dataService.dataObj;
 	$scope.UserData = UserData;
-});
+}]);
 
- myyoprojectCtrls.controller('profileviewController', function($scope, $routeParams, $http){
-  "ngInject";
+ myyoprojectCtrls.controller('profileviewController', ["$scope", "$routeParams", "$http", function($scope, $routeParams, $http){
 
     $scope.message;
     $scope.conversation = [];
@@ -76,10 +70,9 @@ myyoprojectCtrls.controller('registrationController', function($scope, UserData)
     $scope.conversation = [];
   }
 
- 	});
+ 	}]);
 
-myyoprojectCtrls.controller('favoritesController', function($scope, $http, UserData){
-	 "ngInject";
+myyoprojectCtrls.controller('favoritesController', ["$scope", "$http", "UserData", function($scope, $http, UserData){
 
   //get names of famous communists from local JSON file
  	$http.get("communists/communists.json")
@@ -89,9 +82,9 @@ myyoprojectCtrls.controller('favoritesController', function($scope, $http, UserD
 	$scope.message = "I am the favorites controller";
 	$scope.UserData = UserData;
 	});
-});
+}]);
 
-myyoprojectCtrls.controller('listviewController', function($scope, $http, UserData, FavoritesData){
+myyoprojectCtrls.controller('listviewController', ["$scope", "$http", "UserData", "FavoritesData", function($scope, $http, UserData, FavoritesData){
 	//Get user data via factory
 	$scope.UserData = UserData;
 	$scope.favorites = [];
@@ -228,7 +221,7 @@ myyoprojectCtrls.controller('listviewController', function($scope, $http, UserDa
     	$scope.communist = communist;
         $scope.showModal = !$scope.showModal;
     };
-});
+}]);
 
 myyoprojectCtrls.directive('modal', [function () {
     return {
