@@ -1,28 +1,28 @@
 //console.log("controllers.js called");
 var myyoprojectCtrls = angular.module('myyoprojectCtrls', []);
 
-myyoprojectCtrls.controller('editController', function($scope){
+myyoprojectCtrls.controller('editController', [function($scope){
 	$scope.message = "I am the edit controller!";
-});
+})];
 
-myyoprojectCtrls.controller('aboutController', function($scope){
+myyoprojectCtrls.controller('aboutController', [function($scope){
 	$scope.message = "I am the about controller!";
-})
+}]);
 
-myyoprojectCtrls.controller('contactController', function($scope){
+myyoprojectCtrls.controller('contactController', [function($scope){
 	$scope.message = "I am the contact controller!";
-})
+}]);
 
-myyoprojectCtrls.controller('homeController', function($scope){
+myyoprojectCtrls.controller('homeController', [function($scope){
 	$scope.message = "I am the home controller!";
-})
+}]);
 
-myyoprojectCtrls.controller('registrationController', function($scope, UserData){
+myyoprojectCtrls.controller('registrationController', [function($scope, UserData){
 	$scope.message = "I am the registration controller!";
 	// $scope.firstName = dataService.dataObj;
 	// $scope.lastName = dataService.dataObj;
 	$scope.UserData = UserData;
-})
+}]);
 
  myyoprojectCtrls.controller('profileviewController', ['$scope', '$routeParams', '$http',
  	function($scope, $routeParams, $http){
@@ -30,18 +30,11 @@ myyoprojectCtrls.controller('registrationController', function($scope, UserData)
     $scope.message;
     $scope.conversation = [];
     $scope.chunkedData;
-        // $scope.UserData = UserData;
-        // alert($scope.UserData);
-
 
  		$http.get('communists/' + $routeParams.communistName + '.json').success(function(data){
  			$scope.communist = data;
-
-
-   //   $http.get("https://en.wikipedia.org/w/api.php?format=xml&action=query&prop=extracts&titles=Stack%20Overflow&redirects=true")
         $http.get("http://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=" + $scope.communist.firstName + $scope.communist.lastName + "&prop=pageimages&format=json&pithumbsize=400&indexpageids")
-            .then(function (response){
-        
+            .then(function (response){        
           $scope.page = response;
           $scope.pageID = $scope.page.data.query.pageids;
         });
@@ -66,14 +59,9 @@ myyoprojectCtrls.controller('registrationController', function($scope, UserData)
 
 
   
-    $scope.sendMessage = function(){
-      $scope.conversation.push($scope.message);
-    //  setTimeout(function(){
-        $scope.conversation.push(communistResponse());
-     // },
-      //  1000
-       // );
-    
+  $scope.sendMessage = function(){
+    $scope.conversation.push($scope.message);
+    $scope.conversation.push(communistResponse());    
     $scope.chunkedData = chunk($scope.conversation, 2);
   }
 
@@ -82,12 +70,10 @@ myyoprojectCtrls.controller('registrationController', function($scope, UserData)
     $scope.conversation = [];
   }
 
-
-
  	}]);
 
-myyoprojectCtrls.controller('favoritesController', function($scope, $http, UserData){
-		//get names of famous communists from local JSON file
+myyoprojectCtrls.controller('favoritesController', [function($scope, $http, UserData){
+	//get names of famous communists from local JSON file
  	$http.get("communists/communists.json")
  		.then(function(response){
  		$scope.communists = response.data.communists;
@@ -95,34 +81,16 @@ myyoprojectCtrls.controller('favoritesController', function($scope, $http, UserD
 	$scope.message = "I am the favorites controller";
 	$scope.UserData = UserData;
 	});
-})
+}]);
 
-myyoprojectCtrls.controller('listviewController', function($scope, $http, UserData, FavoritesData){
+myyoprojectCtrls.controller('listviewController', [function($scope, $http, UserData, FavoritesData){
 	//Get user data via factory
 	$scope.UserData = UserData;
-
 	$scope.favorites = [];
   $scope.chunkedData = [];
   $scope.communists = [];
   $scope.randomName = '';
   $scope.filters = {};
-
-
-
- // $scope.randomName = $scope.communists[Math.floor((Math.random() * $scope.communists.length))];
-
-
- //  function randomPage(){
- //    alert("Hello?");
- //    alert($scope.communists.length);
- //    var randomIndex = Math.floor((Math.random() * ($scope.communists.length)));
-
- //    $scope.randomName = $scope.communists[randomIndex].name;
- //    alert($scope.randomName);
- // //   alert($scope.randomName);
- //  }
-//	$scope.communists = [];
-//	$scope.counter= 0;
 
   function chunk(arr, size) {
     var newArr = [];
@@ -149,15 +117,6 @@ myyoprojectCtrls.controller('listviewController', function($scope, $http, UserDa
 
     $scope.chunkedData = chunk($scope.communists, 3);
 
-    // for(var section in $scope.chunkedData){
-    // //  alert($scope.chunkedData[section]);
-    //   for (var communist in section){
-    //     console.log(communist);
-    //   }
-    // }
- 	//	shuffle($scope.communists);
-
- 	//console.log(response.data.communists[0].name);
  		$http.get("http://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=" + response.data.communists + "&prop=pageimages&format=json&pithumbsize=400&indexpageids")
         .then(function (response){
         	$scope.communistImage = response;
@@ -250,84 +209,20 @@ myyoprojectCtrls.controller('listviewController', function($scope, $http, UserDa
  		// } 
  	};
 
- 	$scope.moderateComrades = function(communist){
- 		var counter = 0;
- 	//	var similarities = [];
- 	//	alert(communist.hobbies);
- 		//retrieves hobbies user has selected
- 		for(var data in UserData.Hobbies){
- 			if(!UserData.Hobbies.hasOwnProperty(data)) continue;
- 			var hobby = UserData.Hobbies[data];	
- 			 for(var info in hobby){			
- 			 	if(!hobby.hasOwnProperty(info)) continue;
- 			 	
- 			 	//if the user likes the hobby, see if the communist likes it too
- 			 	if(hobby[info] == true){
- 			 //	alert("User's hobby:" + hobby['name']);
- 			 		for(var commyHobby in communist.hobbies){
- 			 	//		alert(commyHobby);
- 			 			if(communist.hobbies[commyHobby] === hobby['name']){
- 					//		alert(communist.name + " likes " + communist.hobbies[commyHobby] +" too!");
- 			 				counter++;
- 			 			//	alert(communist.similarities);
- 			 			//	communist.similarities.push(hobby['name']);
- 			 			//	similarities.push(hobby['name']);
-
- 			 			}
- 			 		}
- 			 	}
- 			}
- 		}
-
- 		if (counter==1){
- 		//	communist.similarities = [];
- 			return true;
- 		} else {
- 			 communist.similarities = [];
- 			 return false;
- 		}
-
- 	};
-
-
  	//shuffle array
  	function shuffle(o){
     	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
 	}
 
-
-	//Get wiki data via $http get
- 	$scope.findValue = function(){
- 			//go to the Wikipedia page of List of Contributors to Marxist Theory
- 			$http.get("http://en.wikipedia.org/wiki/" + "List_of_contributors_to_Marxist_theory" + "?action=render")
- 			.then(function(response){
- 				$scope.tableContents = response;
- 			});
-
- 			// //get names of famous communists from local JSON file
- 			// $http.get("communists/communists.json")
- 			// .then(function(response){
- 			// 	$scope.communistNames = response.data.communists;
- 			// })
-
- 			//get the photos
-	    	$http.get("http://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=" + "List of contributors to Marxist theory" + "&prop=pageimages&format=json&pithumbsize=400&indexpageids")
-            .then(function (response){
-            	
-	    		$scope.page = response;
-                $scope.pageID = $scope.page.data.query.pageids;
-	    	});
-	    	};
-
 	$scope.showModal = false;
     $scope.toggleModal = function(communist){
     	$scope.communist = communist;
         $scope.showModal = !$scope.showModal;
     };
-})
+}]);
 
-myyoprojectCtrls.directive('modal', function () {
+myyoprojectCtrls.directive('modal', [function () {
     return {
       template: '<div class="modal fade">' + 
           '<div class="modal-dialog">' + 
@@ -367,6 +262,6 @@ myyoprojectCtrls.directive('modal', function () {
         });
       }
     };
-  });
+  }]);
 
 
