@@ -2,45 +2,27 @@
 <html class="no-js" lang="" ng-app="myyoprojectApp">
   <head>
     <meta charset="utf-8">
-    <title>my yo project</title>
+    <title>Comrades! The First International Dating Site for Communists</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-
-    
+    <script src="/bower_components/modernizr/modernizr.js"></script>    
   </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  
+  <body>  
+    <div class="main">
+      <div ng-view></div>
+    </div>
 
-    
-   
-      <div class="main">
-        <div ng-view></div>
-      </div>
-
-      <div class="footer">
-        <p class="footerBranding"><span class="glyphicon glyphicon-ice-lolly-tasted"></span> Matt Thrasher Web Design</p>
-      </div>
+    <div class="footer">
+      <p class="footerBranding"><span class="glyphicon glyphicon-ice-lolly-tasted"></span> Matt Thrasher Web Design</p>
     </div>
     
 
-    <!-- build:js(.) scripts/vendor.js -->
+   
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
@@ -48,8 +30,6 @@
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->
-
     
     <!-- build:js(.) scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>

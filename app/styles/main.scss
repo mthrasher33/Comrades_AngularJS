@@ -34,7 +34,7 @@ body {
 .container {
   background-color: white;
   border-radius: 10px 10px 10px 10px;
-  margin-bottom: 100px;
+  margin-bottom: 300px;
 }
 
 .containerWide {
@@ -67,18 +67,11 @@ a:active {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-  a.logo {
+  a {
     font-family: "Righteous";
     color: #31B0D5;
-    margin-left:10%;
   }
 
-  a{
-    font-family: "Righteous";
-    margin-left:10%;
-    margin-right:15%;
-    color: #31B0D5;
-  }
 
 
   /* Make the masthead heading the same height as the navigation */
@@ -129,25 +122,28 @@ a:active {
 
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
-  }
+  margin-left: 5%;
+  width: 90%;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
+  },
+
+  .marketing {
+    width: 90%;
   }
 
   /* Remove the padding we set earlier */
   .header,
-  .marketing,
   .footer {
     padding-left: 0;
     padding-right: 0;
-  }
+  },
+
+
 
   /* Space out the masthead */
   .header {
@@ -522,4 +518,16 @@ position:relative;
 
 .test{
  // background-color: green;
+}
+
+.aboutPic {
+  margin-left: 30%;
+  margin-bottom: 40px;
+  margin-top: 5%;
+  border-radius: 200px 200px 200px 200px;
+}
+
+.glyphicon{
+  margin-left: 6%;
+  margin-bottom: 2%;
 }
