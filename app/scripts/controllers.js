@@ -200,7 +200,7 @@ myyoprojectCtrls.controller('listviewController', function($scope, $http, UserDa
  			communist.similarities = "Strong Comrades"; 
  		}
  		if(counter==1){
- 			communist.similarities[0] = "Moderate Comrades";
+ 			communist.similarities[0] = "Mild Comrades";
  		}
  		if(counter<1){
  			communist.similarities = "Weak Comrades"

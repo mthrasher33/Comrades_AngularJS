@@ -38,7 +38,11 @@ body {
 }
 
 .containerWide {
-  background-color: white;
+  background: #FEF7F7; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#FEF7F7, #FEF8E2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#FEF7F7, #FEF8E2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#FEF7F7, #FEF8E2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#FEF7F7, #FEF8E2); /* Standard syntax */
   border-radius: 10px 10px 10px 10px;
   margin-bottom: 100px;
   width:90%;
@@ -66,10 +70,16 @@ a:active {
 
 /* Custom page header */
 .header {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
   border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 2%;
   a {
     font-family: "Righteous";
     color: #31B0D5;
+  }
+  .logo{
+    margin-left: 1%;
   }
 
 
@@ -120,7 +130,7 @@ a:active {
   }
 }
 
-/* Supporting marketing content */
+/* About page */
 .marketing {
   margin-left: 5%;
   width: 90%;
@@ -145,11 +155,7 @@ a:active {
 
 
 
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-   // margin-top:-20px;
-  }
+
 
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
@@ -157,10 +163,9 @@ a:active {
   }
 }
 
-.form-group label {
-  
-  font-family: "Righteous";
 
+.form-group label {  
+  font-family: "Righteous";
 }
 
 .checkbox-inline {
@@ -173,51 +178,42 @@ a:active {
  color: #B2716F;
 }
 
-
+//Panel that holds communist profiles in list view
 .scrollBox {
   max-height: 540px;
   width: 100%;
   overflow: auto;
   border-radius: 0 0 10px 0;
+  margin-top:-2.5%;
 }
 
 
-
+//Profile picture of communist as appears in the list view
 .listviewPic{
-  /*width: 266px;*/
- // width: %;
-  /*height: 100%; after changing the images so they are the correct size */
   -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-    transition: width 2s;
-    width: 100%;
-//      border: solid;
-//  border-width: 2px;
-//  border-color: #B2716F;
-// border-color: black;
+  transition: width 2s;
+  width: 100%;
+  border-color: #B2716F;
+  border-color: black;
 }
-
-// .listviewPic:hover{
-//   width: 100%;
-// }
 
 .oneThird {
   width: 10%;
 }
 
+//The box and glyphicons that overlay communist profiles on hover
 .listedProfile .glyphiconBox {
   position: absolute;
   top: 30%;
-  margin-top: -15%;
+  margin-top: -20%;
   left: 10%;
   z-index: 2;
-  font-size: 40px;
   opacity: 0;
   width: 100%;
   float: none;
   display: table-cell;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
-
 }
 
 .listedProfile *{
@@ -228,7 +224,7 @@ a:active {
 .glyphiconBox a {
   color: #CBFFDE;
   font-family: "Lato";
-  font-size: 25px;
+  font-size: 20px;
   display: block;
   opacity: .5;
 }
@@ -237,15 +233,10 @@ a:active {
   opacity: 1;
 }
 
-.glyphicon:before {
-  margin-right: 25px;
+// .glyphicon:before {
+//   margin-right: 25px;
  
-}
-
-.glphyicon {
-}
-
-
+// }
 
 .listedProfile:after, .listedProfile:before {
   position:absolute;
@@ -266,7 +257,7 @@ a:active {
 /*The caption*/
 .listedProfile:before {
   content: attr(data-content);
-  font-size: 25px;
+  font-size: 15px;
   text-transform: uppercase;
   width: 100%;
   color: #FFCDCB;
@@ -294,6 +285,8 @@ a:active {
   }
 
 }
+
+//animations for hovering over communist profiles in listview
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
@@ -319,10 +312,12 @@ a:active {
   transition: all 1s ease-in-out;
 }
 
-//Removes padding between bootstrap columns
+//Overriding bootstrap rows and columns to fix margins
+//Removes padding between bootstrap columns. Used for images of communists in list view
 .row.no-pad {
   margin-right:0;
   margin-left:0;
+
 }
 .row.no-pad > [class*='col-'] {
   padding-right:0;
@@ -330,87 +325,37 @@ a:active {
 
 }
 
-//left nav bar
 
+//left nav bar on list view
 .leftNavBar {
-  margin-top: -30px;
-  background: #FEF7F7; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#FEF7F7, #FEF8E2); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#FEF7F7, #FEF8E2); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#FEF7F7, #FEF8E2); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#FEF7F7, #FEF8E2); /* Standard syntax */
+
   border-radius: 0 0 0 10px;
+  //margin-top: -23%;
+  margin-bottom: 10%;
+  
+
+  h3 {
+    padding-top: 10px;
+  }
 
   h1,h2,h3,h4,h5, a {
+    padding-top: 10px;
   padding-left: 7%;
-  margin-top: 20px;
   color: black;
-  display: block;
-
+display: block;
 }
 
 .glyphicon:before {
   margin-right: 50%;
+
 }
 input {
   width: 75%;
   margin-left: 7%;
 }
 
-//background-color: #F4F5F6;
-height: 540px;
-position:relative;
 }
 
-.navBarFooter {
-  position:absolute;
-  height: 100px;
-  width:100%;
-  background-color: cornsilk;
-  bottom: 0px;
-  border-radius: 0 0 0 10px;
-  a{
-    display: inline;
-    margin-top: 50px;
-  }
-}
-
-//dividing line on footer of navbar
-.divider {
-  height: 50%;
-  width:50%;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-color: black;
-  position: absolute;
-  left: 25%;
-}
-//Icons on footer of navbar
-.topHalf {
-  height:50%;
-  width: 75%;
-  position:absolute;
-  top: 12.5%;
-  margin-left: 12.5%;
-  //keeps icons centered and on same line for re-sizing
-  .glyphicon {
-    width: 24%;
-    padding-left:7%;
-  }
-
-}
-
-.bottomHalf {
-  height:50%;
-  width: 75%;
-  margin-left: 12.5%;
-  position: absolute;
-  bottom:-12.5%;
-  .glyphicon {
-    width: 24%;
-    padding-left: 7%;
-  }
-}
 
 .deleteComrade:hover {
   color: red;
@@ -530,4 +475,5 @@ position:relative;
 .glyphicon{
   margin-left: 6%;
   margin-bottom: 2%;
+  margin-right: 1%;
 }
