@@ -100,6 +100,8 @@ myyoprojectCtrls.controller('listviewController', function($scope, $http, UserDa
   $scope.randomName = '';
   $scope.filters = {};
 
+
+
   function chunk(arr, size) {
     var newArr = [];
     for (var i=0; i<arr.length; i+=size) {
@@ -120,7 +122,6 @@ myyoprojectCtrls.controller('listviewController', function($scope, $http, UserDa
  	$http.get("communists/communists.json")
  		.then(function(response){
  		$scope.communists = response.data.communists;
-
     $scope.randomName = $scope.communists[Math.floor((Math.random() * $scope.communists.length))].name;
 
     $scope.chunkedData = chunk($scope.communists, 3);

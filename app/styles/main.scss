@@ -407,6 +407,12 @@ input {
   width: 40%;
 }
 
+.chatBox{
+  img{
+    width:40%;
+  }
+}
+
 .conversationBox{
   width:100%;
 
@@ -450,6 +456,7 @@ input {
   padding-left: 5%;
 }
 
+//width of the actual chat box
 .panel-danger{
   width: 50%;
   margin-left:50%;
@@ -461,8 +468,7 @@ input {
   text-align: center;
 }
 
-.test{
- // background-color: green;
+.panel{
 }
 
 .aboutPic {
@@ -477,3 +483,20 @@ input {
   margin-bottom: 2%;
   margin-right: 1%;
 }
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (max-width: 600px) {
+.panel-danger {
+  width: 100%;
+  margin-left:0;
+  margin-bottom:25px;
+}
+.chatBox {
+  img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 0 0 0 0;
+  }
+}
+  }
