@@ -39,11 +39,6 @@ myyoprojectCtrls.controller('registrationController', function($scope, UserData)
 
  		$http.get('communists/' + $routeParams.communistName + '.json').success(function(data){
  			$scope.communist = data;
-        $http.get("http://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=" + $scope.communist.firstName + $scope.communist.lastName + "&prop=pageimages&format=json&pithumbsize=400&indexpageids")
-            .then(function (response){        
-          $scope.page = response;
-          $scope.pageID = $scope.page.data.query.pageids;
-        });
  		}); 
 
   function chunk(arr, size) {
